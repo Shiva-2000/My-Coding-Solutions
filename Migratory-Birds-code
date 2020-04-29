@@ -1,0 +1,37 @@
+#Question Link: https://www.hackerrank.com/challenges/migratory-birds/problem
+# Code:
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the migratoryBirds function below.
+def migratoryBirds(arr):
+    c=[]
+    for i in range(len(arr)):
+        if arr[i] not in c:
+            c.append(arr[i])
+    d=[]
+    for i in range(len(c)):
+        d.append(arr.count(c[i]))
+    p=[];m=max(d)
+    for i in range(len(d)):
+        if(d[i]==m):
+            p.append(c[i])
+    return min(p)
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr_count = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = migratoryBirds(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
